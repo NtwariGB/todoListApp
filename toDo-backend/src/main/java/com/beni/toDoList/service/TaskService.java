@@ -19,6 +19,10 @@ public class TaskService {
     }
 
     public Task createTask(Task task) {
+        // Définir la phase par défaut si elle n'est pas spécifiée
+        if (task.getPhase() == null || task.getPhase().isEmpty()) {
+            task.setPhase("To Do");
+        }
         return taskRepository.save(task);
     }
 
@@ -28,6 +32,7 @@ public class TaskService {
                 task.setTitle(updatedTask.getTitle());
                 task.setDescription(updatedTask.getDescription());
                 task.setCompleted(updatedTask.isCompleted());
+                task.setPhase(updatedTask.getPhase());
                 return taskRepository.save(task);
             })
             .orElseThrow(() -> new RuntimeException("Task not found"));
@@ -37,4 +42,3 @@ public class TaskService {
         taskRepository.deleteById(id);
     }
 }
-

@@ -1,24 +1,29 @@
 import React, { useState } from 'react';
 import { createTask } from '../services/taskService.js';
 
-const AddTask = ({ refreshTasks }) => {
+const AddTask = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await createTask({ title, description, completed: false });
+            await createTask({ 
+                title, 
+                description, 
+                completed: false,
+                phase: 'To Do' // Assurez-vous que la phase est définie
+            });
             setTitle('');
             setDescription('');
-            if (refreshTasks) refreshTasks(); // Rafraîchir la liste des tâches si une fonction est fournie
+            // Ajouter une logique pour rafraîchir la liste des tâches si nécessaire
         } catch (error) {
             console.error('Erreur lors de la création de la tâche:', error);
         }
     };
 
     return (
-        <div className="add-task">
+        <div>
             <h2>Ajouter une Tâche</h2>
             <form onSubmit={handleSubmit}>
                 <label>
