@@ -1,0 +1,84 @@
+/* App.css */
+
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.add-task {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 500px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-task form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-task label {
+  display: block;
+  font-size: 16px;
+  color: #333;
+}
+
+.add-task input,
+.add-task textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-task button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-task button:hover {
+  background-color: #0056b3;
+}
+
+.task-list {
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.task-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-list li {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-list li:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.task-list li span {
+  font-weight: bold;
+  color: #333;
+}
+
+.task-list li span.completed {
+  color: #28a745;
+}
+
+.task-list li span:not(.completed) {
+  color: #dc3545;
+}
